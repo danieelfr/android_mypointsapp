@@ -1,4 +1,4 @@
-package danieeelfr.projects.android.mypoints;
+package danieeelfr.projects.android.mypoints.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,6 +6,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import danieeelfr.projects.android.mypoints.Business.PointBusiness;
+import danieeelfr.projects.android.mypoints.R;
 
 public class MyPointsActivity extends AppCompatActivity {
 
@@ -20,8 +23,12 @@ public class MyPointsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
+            PointBusiness pointBusiness = new PointBusiness(MyPointsActivity.this);
+                pointBusiness.Add("teste", "1231231", "1231321");
+
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

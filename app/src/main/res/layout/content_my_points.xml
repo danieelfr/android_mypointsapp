@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="danieeelfr.projects.android.mypoints.MyPointsActivity"
+    tools:context="danieeelfr.projects.android.mypoints.ui.MyPointsActivity"
     tools:showIn="@layout/activity_my_points">
 
 </android.support.constraint.ConstraintLayout>
