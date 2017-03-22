@@ -12,4 +12,6 @@
     <string name="title_activity_my_points">My Points</string>
     <string name="button_add_new">ADD NEW</string>
     <string name="button_get_position">GET POSITION</string>
+    <string name="title_activity_point_detail">Add Point</string>
+    <string name="action_settings">Settings</string>
 </resources>

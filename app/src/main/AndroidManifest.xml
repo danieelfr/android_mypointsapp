@@ -36,6 +36,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="danieeelfr.projects.android.mypoints.ui.MainActivity" />
         </activity>
+        <activity
+            android:name=".ui.PointDetailActivity"
+            android:label="@string/title_activity_point_detail"
+            android:parentActivityName=".ui.MyPointsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="danieeelfr.projects.android.mypoints.ui.MyPointsActivity" />
+        </activity>
     </application>
 
 </manifest>
