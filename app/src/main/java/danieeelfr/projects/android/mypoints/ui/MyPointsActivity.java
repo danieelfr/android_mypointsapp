@@ -7,8 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import danieeelfr.projects.android.mypoints.Business.PointBusiness;
 import danieeelfr.projects.android.mypoints.R;
+import danieeelfr.projects.android.mypoints.ui.fragments.PointsListFragment;
+import danieeelfr.projects.android.mypoints.ui.fragments.PointsMapFragment;
 
 public class MyPointsActivity extends AppCompatActivity {
 
@@ -25,13 +26,17 @@ public class MyPointsActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-
-            PointBusiness pointBusiness = new PointBusiness(MyPointsActivity.this);
-                pointBusiness.Add("teste", "1231231", "1231321");
-
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if(savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.edition_container, new PointsListFragment())
+                    .add(R.id.list_container, new PointsMapFragment())
+                    .commit();
+        }
     }
 
 }
