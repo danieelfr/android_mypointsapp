@@ -2,9 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorCinzaClaro"
-
-    tools:context="danieeelfr.projects.android.mypoints.ui.fragments.PointsMapFragment">
+    android:background="@color/colorAccent"
+    tools:context="danieeelfr.projects.android.mypoints.ui.fragments.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

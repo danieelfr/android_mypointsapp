@@ -9,10 +9,11 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import danieeelfr.projects.android.mypoints.R;
+import danieeelfr.projects.android.mypoints.ui.fragments.HomeFragment;
+import danieeelfr.projects.android.mypoints.ui.fragments.PointsListFragment;
+import danieeelfr.projects.android.mypoints.ui.fragments.PointsMapFragment;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -24,16 +25,18 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    initPage();
                     return true;
                 case R.id.navigation_mypoints:
                     intent = new Intent(MainActivity.this, MyPointsActivity.class);
                     startActivity(intent);
+
                     return true;
                 case R.id.navigation_about:
-                    intent = new Intent(MainActivity.this, AboutActivity.class);
-                    startActivity(intent);
-
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .add(R.id.content, new HomeFragment())
+                            .commit();
                     return true;
             }
             return false;
@@ -44,9 +47,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initPage();
+    }
+
+    private void initPage()
+    {
         setContentView(R.layout.activity_main);
 
-       //  mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

@@ -13,12 +13,15 @@
         android:id="@+id/edition_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></FrameLayout>
+        android:layout_weight="1">
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/list_container"
         android:layout_width="match_parent"
+
         android:layout_height="0dp"
-        android:layout_weight="1"></FrameLayout>
+        android:layout_weight="1.5">
+    </FrameLayout>
 
 </LinearLayout>
