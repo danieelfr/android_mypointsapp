@@ -3,6 +3,10 @@ package danieeelfr.projects.android.mypoints.Repository;
 import android.content.Context;
 import android.graphics.Point;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+
 import danieeelfr.projects.android.mypoints.Models.PointModel;
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -20,6 +24,11 @@ public class PointsRepository {
     {
         context = _context;
         _realm = Realm.getInstance(_context);
+    }
+
+    public PointsRepository()
+    {
+
     }
 
     public void Add(PointModel _pointModel) {
@@ -70,4 +79,63 @@ public class PointsRepository {
                 _realm.close();
         }
     }
+
+    public List<PointModel> GetPointsList()
+    {
+        try
+        {
+            _realm.beginTransaction();
+
+            RealmResults<PointModel> points = _realm.where(PointModel.class).findAll();
+
+            List<PointModel> retorno =  new ArrayList<PointModel>();
+
+            if (!points.isEmpty()) {
+                for (int i = points.size() - 1; i >= 0; i--) {
+                    retorno.add(points.get(i));
+                }
+            }
+            _realm.commitTransaction();
+
+            return  retorno;
+
+        }
+        catch (Exception ex) {
+            _realm.cancelTransaction();
+
+            if (!_realm.isClosed())
+                _realm.close();
+        }
+
+        return null;
+    }
+
+    public List<PointModel> GetPointsListFake()
+    {
+        try
+        {
+            List<PointModel> lista = new ArrayList<PointModel>();
+
+            PointModel item1 = new PointModel((long) 6, "descriçao teste", "20:20:20:20", "30:00:00:00", true, true, false, "Hawaii", "Pacific Ocean");
+            PointModel item2 = new PointModel((long) 7, "descriçao teste 222", "20:20:20:20", "30:00:00:00", true, true, false, "Hawaii", "Pacific Ocean");
+            PointModel item3 = new PointModel((long) 8, "descriçao teste 222", "20:20:20:20", "30:00:00:00", true, true, false, "Hawaii", "Pacific Ocean");
+            PointModel item4 = new PointModel((long) 9, "descriçao teste 222", "20:20:20:20", "30:00:00:00", true, true, false, "Hawaii", "Pacific Ocean");
+            PointModel item5 = new PointModel((long) 10, "descriçao teste 222", "20:20:20:20", "30:00:00:00", true, true, false, "Hawaii", "Pacific Ocean");
+            PointModel item6 = new PointModel((long) 10, "descriçao teste 222", "20:20:20:20", "30:00:00:00", true, true, false, "Hawaii", "Pacific Ocean");
+
+            lista.add(item1);
+            lista.add(item2);
+            lista.add(item3);
+            lista.add(item4);
+            lista.add(item5);
+            lista.add(item6);
+
+            return lista;
+        }
+        catch (Exception ex) {
+
+        }
+        return null;
+    }
+
 }

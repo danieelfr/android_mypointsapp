@@ -10,18 +10,17 @@
     tools:showIn="@layout/activity_my_points">
 
     <FrameLayout
-        android:id="@+id/edition_container"
+        android:id="@+id/points_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1.5">
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/list_container"
+        android:id="@+id/points_map"
         android:layout_width="match_parent"
-
         android:layout_height="0dp"
-        android:layout_weight="1.5">
+        android:layout_weight="1">
     </FrameLayout>
 
 </LinearLayout>

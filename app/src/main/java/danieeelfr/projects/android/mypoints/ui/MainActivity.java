@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import danieeelfr.projects.android.mypoints.R;
-import danieeelfr.projects.android.mypoints.ui.fragments.HomeFragment;
+
 import danieeelfr.projects.android.mypoints.ui.fragments.PointsListFragment;
 import danieeelfr.projects.android.mypoints.ui.fragments.PointsMapFragment;
 
@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_about:
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .add(R.id.content, new HomeFragment())
-                            .commit();
+//                    getSupportFragmentManager()
+//                            .beginTransaction()
+//                            .add(R.id.content, new Abou())
+//                            .commit();
                     return true;
             }
             return false;

@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
 
 import danieeelfr.projects.android.mypoints.R;
 import danieeelfr.projects.android.mypoints.ui.fragments.PointsListFragment;
@@ -24,8 +25,8 @@ public class MyPointsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+
+
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -33,8 +34,8 @@ public class MyPointsActivity extends AppCompatActivity {
         if(savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.edition_container, new PointsListFragment())
-                    .add(R.id.list_container, new PointsMapFragment())
+                    .add(R.id.points_list, new PointsListFragment())
+                    .add(R.id.points_map, new PointsMapFragment())
                     .commit();
         }
     }
