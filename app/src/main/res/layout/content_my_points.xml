@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="danieeelfr.projects.android.mypoints.MyPointsActivity"
+    tools:context="danieeelfr.projects.android.mypoints.ui.MyPointsActivity"
     tools:showIn="@layout/activity_my_points">
 
-</android.support.constraint.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/edition_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/list_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
+
+</LinearLayout>

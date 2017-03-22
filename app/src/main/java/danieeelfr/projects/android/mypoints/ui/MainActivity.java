@@ -1,4 +1,4 @@
-package danieeelfr.projects.android.mypoints;
+package danieeelfr.projects.android.mypoints.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import danieeelfr.projects.android.mypoints.R;
 
 public class MainActivity extends AppCompatActivity {
 

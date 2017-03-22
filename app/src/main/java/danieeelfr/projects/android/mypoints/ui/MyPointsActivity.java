@@ -1,4 +1,4 @@
-package danieeelfr.projects.android.mypoints;
+package danieeelfr.projects.android.mypoints.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,6 +6,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import danieeelfr.projects.android.mypoints.R;
+import danieeelfr.projects.android.mypoints.ui.fragments.PointsListFragment;
+import danieeelfr.projects.android.mypoints.ui.fragments.PointsMapFragment;
 
 public class MyPointsActivity extends AppCompatActivity {
 
@@ -25,6 +29,14 @@ public class MyPointsActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if(savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.edition_container, new PointsListFragment())
+                    .add(R.id.list_container, new PointsMapFragment())
+                    .commit();
+        }
     }
 
 }

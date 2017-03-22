@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,22 +19,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name=".ui.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="danieeelfr.projects.android.mypoints.MainActivity" />
+                android:value="danieeelfr.projects.android.mypoints.ui.MainActivity" />
         </activity>
         <activity
-            android:name=".MyPointsActivity"
+            android:name=".ui.MyPointsActivity"
             android:label="@string/title_activity_my_points"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="danieeelfr.projects.android.mypoints.MainActivity" />
+                android:value="danieeelfr.projects.android.mypoints.ui.MainActivity" />
         </activity>
     </application>
 
