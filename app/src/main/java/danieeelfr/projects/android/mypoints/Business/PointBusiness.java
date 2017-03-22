@@ -20,7 +20,7 @@ public class PointBusiness {
     public PointBusiness(Context _context)
     {
         context = _context;
-        pointsRepository = new PointsRepository(context);
+
     }
 
     public void Add(String _description, String _latitude, String _longitude)
@@ -31,6 +31,12 @@ public class PointBusiness {
         pointModel.setLongitude(_longitude);
 
         pointsRepository.Add(pointModel);
+    }
+
+    public List<PointModel> GetPointsList()
+    {
+        pointsRepository = new PointsRepository(context);
+        return pointsRepository.GetPointsList();
     }
 
     public List<PointModel> GetPointsListFake()

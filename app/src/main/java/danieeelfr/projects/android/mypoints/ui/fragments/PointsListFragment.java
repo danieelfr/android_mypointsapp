@@ -26,17 +26,18 @@ public class PointsListFragment extends Fragment {
     Context context;
 
     public PointsListFragment() {
-        // context = getActivity().getApplicationContext();
-        this.pointBusiness = new PointBusiness();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        this.context = this.getContext();
+        this.pointBusiness = new PointBusiness(this.context);
+
         View view = inflater.inflate(R.layout.fragment_points_list, container, false);
 
-        List<PointModel> pointModelList = pointBusiness.GetPointsListFake();
+        List<PointModel> pointModelList = pointBusiness.GetPointsList();
 
         PointsAdapter atendimentoAdapter = new PointsAdapter(getActivity(), pointModelList);
         ListView lvAtendimentos = (ListView)view.findViewById(R.id.lvPoints);

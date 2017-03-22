@@ -39,5 +39,4 @@ public class MyPointsActivity extends AppCompatActivity {
                     .commit();
         }
     }
-
 }

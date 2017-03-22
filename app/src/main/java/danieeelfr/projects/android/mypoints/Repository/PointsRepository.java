@@ -23,7 +23,7 @@ public class PointsRepository {
     public PointsRepository(Context _context)
     {
         context = _context;
-        _realm = Realm.getInstance(_context);
+
     }
 
     public PointsRepository()
@@ -84,6 +84,9 @@ public class PointsRepository {
     {
         try
         {
+
+            _realm = Realm.getInstance(context);
+
             _realm.beginTransaction();
 
             RealmResults<PointModel> points = _realm.where(PointModel.class).findAll();
