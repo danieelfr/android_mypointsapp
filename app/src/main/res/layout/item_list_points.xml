@@ -124,6 +124,7 @@
             <CheckBox
                 android:id="@+id/chbSurfPoint"
                 android:text="Surf"
+                android:enabled="false"
                 android:layout_weight="1"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
@@ -133,6 +134,7 @@
                 android:id="@+id/chbPaddlePoint"
                 android:text="Stand up paddle"
                 android:layout_weight="1"
+                android:enabled="false"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -142,6 +144,7 @@
                 android:text="Kite surf"
                 android:layout_weight="1"
                 android:textSize="12sp"
+                android:enabled="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
