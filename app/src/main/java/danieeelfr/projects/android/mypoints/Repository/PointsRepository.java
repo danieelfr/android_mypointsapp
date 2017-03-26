@@ -33,6 +33,7 @@ public class PointsRepository {
 
     public void Add(PointModel _pointModel) {
         try {
+            _realm = Realm.getInstance(context);
             _realm.beginTransaction();
 
             PointModel point = _realm.createObject(PointModel.class);
@@ -47,6 +48,11 @@ public class PointsRepository {
             point.setDescription(_pointModel.getDescription());
             point.setLatitude(_pointModel.getLatitude());
             point.setLongitude(_pointModel.getLongitude());
+            point.setTitle(_pointModel.getTitle());
+            point.setLocal(_pointModel.getLocal());
+            point.setKite(_pointModel.getKite());
+            point.setSurf(_pointModel.getSurf());
+            point.setPaddle(_pointModel.getPaddle());
 
             _realm.commitTransaction();
         }
@@ -84,9 +90,7 @@ public class PointsRepository {
     {
         try
         {
-
             _realm = Realm.getInstance(context);
-
             _realm.beginTransaction();
 
             RealmResults<PointModel> points = _realm.where(PointModel.class).findAll();

@@ -41,4 +41,16 @@ public class MyPointsActivity extends AppCompatActivity {
                     .commit();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.points_list, new PointsListFragment())
+                .add(R.id.points_map, new PointsMapFragment())
+                .commit();
+
+    }
 }

@@ -20,17 +20,13 @@ public class PointBusiness {
     public PointBusiness(Context _context)
     {
         context = _context;
+        pointsRepository = new PointsRepository(context);
 
     }
 
-    public void Add(String _description, String _latitude, String _longitude)
+    public void Add(PointModel _pointModel)
     {
-        PointModel pointModel = new PointModel();
-        pointModel.setDescription(_description);
-        pointModel.setLatitude(_latitude);
-        pointModel.setLongitude(_longitude);
-
-        pointsRepository.Add(pointModel);
+        pointsRepository.Add(_pointModel);
     }
 
     public List<PointModel> GetPointsList()
