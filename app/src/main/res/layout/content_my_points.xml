@@ -9,16 +9,41 @@
     tools:context="danieeelfr.projects.android.mypoints.ui.MyPointsActivity"
     tools:showIn="@layout/activity_my_points">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#42620b">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/title_mypoints_list"
+            android:textAlignment="textStart"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:textAllCaps="true"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:textColor="@color/colorCinzaClaro"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <FrameLayout
         android:id="@+id/points_list"
         android:layout_width="match_parent"
+        android:background="@color/colorPrimaryClaro"
         android:layout_height="0dp"
         android:layout_weight="1.5">
     </FrameLayout>
 
+
     <FrameLayout
         android:id="@+id/points_map"
+        android:background="@drawable/map_background"
         android:layout_width="match_parent"
+        android:layout_margin="0dp"
         android:layout_height="0dp"
         android:layout_weight="1">
     </FrameLayout>
