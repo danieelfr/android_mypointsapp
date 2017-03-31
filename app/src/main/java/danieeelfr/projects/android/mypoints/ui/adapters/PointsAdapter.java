@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,6 +22,7 @@ public class PointsAdapter extends BaseAdapter {
 
     private List<PointModel> points;
     private Activity activity;
+
 
     public PointsAdapter(Activity activity, List<PointModel> points)
     {
@@ -49,7 +53,68 @@ public class PointsAdapter extends BaseAdapter {
         PointModel pointModel = points.get(position);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-        tvTitle.setText(pointModel.getDescription().toString());
+        tvTitle.setText(pointModel.getTitle().toString());
+
+        TextView tvDescription = (TextView) view.findViewById(R.id.tvDescription);
+        tvDescription.setText(pointModel.getDescription().toString());
+
+        TextView tvLocal = (TextView) view.findViewById(R.id.tvLocal);
+        tvLocal.setText(pointModel.getLocal().toString());
+
+        TextView tvLatitude = (TextView) view.findViewById(R.id.tvLatitude);
+        tvLatitude.setText(pointModel.getLatitude().toString());
+
+        TextView tvLongitude = (TextView) view.findViewById(R.id.tvLongitude);
+        tvLongitude.setText(pointModel.getLongitude().toString());
+
+        CheckBox chbSurfPoint = (CheckBox) view.findViewById(R.id.chbSurfPoint);
+        chbSurfPoint.setChecked(pointModel.getSurf());
+
+        CheckBox chbKitePoint = (CheckBox) view.findViewById(R.id.chbKitePoint);
+        chbKitePoint.setChecked(pointModel.getKite());
+
+        CheckBox chbPaddlePoint = (CheckBox) view.findViewById(R.id.chbPaddlePoint);
+        chbPaddlePoint.setChecked(pointModel.getPaddle());
+
+        ImageButton imbWhatsApp = (ImageButton)view.findViewById(R.id.imbWhatsApp);
+        imbWhatsApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ImageButton imbDelete = (ImageButton)view.findViewById(R.id.imbDelete);
+        imbDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ImageButton imbPhotos = (ImageButton)view.findViewById(R.id.imbPhotos);
+        imbPhotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ImageButton imbViewMap = (ImageButton)view.findViewById(R.id.imbViewMap);
+        imbViewMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ImageButton imbWebSearch = (ImageButton)view.findViewById(R.id.imbWebSearch);
+        imbWebSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return view;
     }

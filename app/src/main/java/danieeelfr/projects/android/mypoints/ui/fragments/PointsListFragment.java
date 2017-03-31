@@ -46,6 +46,8 @@ public class PointsListFragment extends Fragment {
         lvAtendimentos = (ListView)view.findViewById(R.id.lvPoints);
         lvAtendimentos.setAdapter(atendimentoAdapter);
 
+
+
         return view;
     }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    android:layout_height="match_parent"
+<FrameLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingStart="@dimen/activity_horizontal_margin"
     android:paddingEnd="@dimen/activity_horizontal_margin"
-    android:background="@color/colorPrimaryClaro"
+    android:background="@color/colorCinzaEscuro"
     android:paddingTop="@dimen/activity_vertical_margin"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -55,6 +55,7 @@
                 android:id="@+id/tvLatitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="00.00.00.00"
                 android:textSize="12sp" />
@@ -71,6 +72,7 @@
                 android:id="@+id/tvLongitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="00.00.00.00"
                 android:textSize="12sp" />
@@ -93,6 +95,7 @@
                 android:id="@+id/tvLocal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Country / City / Local"
                 android:textSize="10sp" />
@@ -112,17 +115,16 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/tvEndereço"
+                android:id="@+id/tvDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
                 android:minLines="3"
                 android:maxLines="6"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Point description..."
                 android:textSize="10sp" />
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -156,6 +158,55 @@
                 android:enabled="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <ImageButton
+                android:id="@+id/imbWhatsApp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_share_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/imbViewMap"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_person_pin_circle_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/imbPhotos"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_photo_camera_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/imbWebSearch"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_search_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/imbDelete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_delete_forever_black_24dp" />
 
         </LinearLayout>
     </LinearLayout>

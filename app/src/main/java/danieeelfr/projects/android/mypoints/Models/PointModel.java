@@ -79,7 +79,7 @@ public class PointModel extends RealmObject {
     }
 
     public void setLocal(final String _local) {
-        this.title = _local;
+        this.local = _local;
     }
 
     public Boolean getSurf() {
