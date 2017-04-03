@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import danieeelfr.projects.android.mypoints.Business.PointBusiness;
 import danieeelfr.projects.android.mypoints.Models.PointModel;
 import danieeelfr.projects.android.mypoints.R;
 
@@ -22,12 +23,15 @@ public class PointsAdapter extends BaseAdapter {
 
     private List<PointModel> points;
     private Activity activity;
+    private PointBusiness pointBusiness;
+    private PointModel pointModel;
 
 
     public PointsAdapter(Activity activity, List<PointModel> points)
     {
         this.activity = activity;
         this.points = points;
+        this.pointBusiness = new PointBusiness(activity);
     }
 
     @Override
@@ -48,24 +52,24 @@ public class PointsAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = this.activity.getLayoutInflater().inflate(R.layout.item_list_points, null);
+        final View view = this.activity.getLayoutInflater().inflate(R.layout.item_list_points, null);
 
-        PointModel pointModel = points.get(position);
+        pointModel = points.get(position);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-        tvTitle.setText(pointModel.getTitle().toString());
+        tvTitle.setText(pointModel.getTitle());
 
         TextView tvDescription = (TextView) view.findViewById(R.id.tvDescription);
-        tvDescription.setText(pointModel.getDescription().toString());
+        tvDescription.setText(pointModel.getDescription());
 
         TextView tvLocal = (TextView) view.findViewById(R.id.tvLocal);
-        tvLocal.setText(pointModel.getLocal().toString());
+        tvLocal.setText(pointModel.getLocal());
 
         TextView tvLatitude = (TextView) view.findViewById(R.id.tvLatitude);
-        tvLatitude.setText(pointModel.getLatitude().toString());
+        tvLatitude.setText(pointModel.getLatitude());
 
         TextView tvLongitude = (TextView) view.findViewById(R.id.tvLongitude);
-        tvLongitude.setText(pointModel.getLongitude().toString());
+        tvLongitude.setText(pointModel.getLongitude());
 
         CheckBox chbSurfPoint = (CheckBox) view.findViewById(R.id.chbSurfPoint);
         chbSurfPoint.setChecked(pointModel.getSurf());
@@ -88,7 +92,8 @@ public class PointsAdapter extends BaseAdapter {
         imbDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                pointBusiness.Remove(pointModel);
+                activity.recreate();
             }
         });
 

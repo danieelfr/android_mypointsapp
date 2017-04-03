@@ -46,18 +46,16 @@ public class PointsListFragment extends Fragment {
         lvAtendimentos = (ListView)view.findViewById(R.id.lvPoints);
         lvAtendimentos.setAdapter(atendimentoAdapter);
 
-
-
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        pointModelList = pointBusiness.GetPointsList();
-        atendimentoAdapter = new PointsAdapter(getActivity(), pointModelList);
-        lvAtendimentos = (ListView)view.findViewById(R.id.lvPoints);
-        lvAtendimentos.setAdapter(atendimentoAdapter);
+//
+//        pointModelList = pointBusiness.GetPointsList();
+//        atendimentoAdapter = new PointsAdapter(getActivity(), pointModelList);
+//        lvAtendimentos = (ListView)view.findViewById(R.id.lvPoints);
+//        lvAtendimentos.setAdapter(atendimentoAdapter);
     }
 }

@@ -21,12 +21,16 @@ public class PointBusiness {
     {
         context = _context;
         pointsRepository = new PointsRepository(context);
-
     }
 
     public void Add(PointModel _pointModel)
     {
         pointsRepository.Add(_pointModel);
+    }
+
+    public void Remove(PointModel _pointModel)
+    {
+        pointsRepository.Remove(_pointModel.getId());
     }
 
     public List<PointModel> GetPointsList()

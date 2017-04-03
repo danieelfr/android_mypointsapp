@@ -9,6 +9,7 @@ import java.util.List;
 
 import danieeelfr.projects.android.mypoints.Models.PointModel;
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
 
 /**
@@ -23,7 +24,6 @@ public class PointsRepository {
     public PointsRepository(Context _context)
     {
         context = _context;
-
     }
 
     public PointsRepository()
@@ -55,6 +55,8 @@ public class PointsRepository {
             point.setPaddle(_pointModel.getPaddle());
 
             _realm.commitTransaction();
+
+
         }
         catch (Exception ex)
         {
@@ -63,11 +65,16 @@ public class PointsRepository {
             if (!_realm.isClosed())
                 _realm.close();
         }
+
     }
 
-    public void Remove(int _id) {
+
+
+    public void Remove(long _id) {
         try {
+            _realm = Realm.getInstance(context);
             _realm.beginTransaction();
+
             RealmResults<PointModel> points = _realm.where(PointModel.class).equalTo("id", _id).findAll();
 
             if (!points.isEmpty()) {
