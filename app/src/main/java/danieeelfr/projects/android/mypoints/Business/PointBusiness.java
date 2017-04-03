@@ -12,11 +12,6 @@ public class PointBusiness {
     private Context context;
     private PointsRepository pointsRepository;
 
-    public PointBusiness()
-    {
-        pointsRepository = new PointsRepository();
-    }
-
     public PointBusiness(Context _context)
     {
         context = _context;

@@ -14,6 +14,9 @@ import java.util.List;
 import danieeelfr.projects.android.mypoints.Business.PointBusiness;
 import danieeelfr.projects.android.mypoints.Models.PointModel;
 import danieeelfr.projects.android.mypoints.R;
+import danieeelfr.projects.android.mypoints.ui.MyPointsActivity;
+import danieeelfr.projects.android.mypoints.ui.fragments.PointsListFragment;
+import danieeelfr.projects.android.mypoints.ui.fragments.PointsMapFragment;
 
 /**
  * Created by danielfr on 06/03/2017.
@@ -25,7 +28,6 @@ public class PointsAdapter extends BaseAdapter {
     private Activity activity;
     private PointBusiness pointBusiness;
     private PointModel pointModel;
-
 
     public PointsAdapter(Activity activity, List<PointModel> points)
     {
@@ -93,7 +95,7 @@ public class PointsAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 pointBusiness.Remove(pointModel);
-                activity.recreate();
+
             }
         });
 

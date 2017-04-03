@@ -68,7 +68,6 @@ public class PointDetailActivity extends AppCompatActivity {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 Toast.makeText(PointDetailActivity.this, "Point saved!", Toast.LENGTH_SHORT).show();
-
                 finish();
             }
         };
@@ -100,6 +99,4 @@ public class PointDetailActivity extends AppCompatActivity {
         pointModel.setPaddle(chbPaddlePoint.isChecked());
         pointModel.setKite(chbKitePoint.isChecked());
     }
-
-
 }

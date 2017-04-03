@@ -2,19 +2,17 @@ package danieeelfr.projects.android.mypoints.Repository;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import danieeelfr.projects.android.mypoints.Models.PointModel;
+import danieeelfr.projects.android.mypoints.ui.MyPointsActivity;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
-
-/**
- * Created by danielfr on 21/03/2017.
- */
 
 public class PointsRepository {
 
@@ -26,12 +24,8 @@ public class PointsRepository {
         context = _context;
     }
 
-    public PointsRepository()
+    public void Add(PointModel _pointModel)
     {
-
-    }
-
-    public void Add(PointModel _pointModel) {
         try {
             _realm = Realm.getInstance(context);
             _realm.beginTransaction();
@@ -64,13 +58,14 @@ public class PointsRepository {
 
             if (!_realm.isClosed())
                 _realm.close();
+
+            Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
     }
 
-
-
-    public void Remove(long _id) {
+    public void Remove(long _id)
+    {
         try {
             _realm = Realm.getInstance(context);
             _realm.beginTransaction();
@@ -84,12 +79,16 @@ public class PointsRepository {
             }
             _realm.commitTransaction();
 
+            Toast.makeText(context, "Point removed.", Toast.LENGTH_SHORT).show();
+            ((MyPointsActivity)context).recreate();
         }
         catch (Exception ex) {
             _realm.cancelTransaction();
 
             if (!_realm.isClosed())
                 _realm.close();
+
+            Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -151,5 +150,4 @@ public class PointsRepository {
         }
         return null;
     }
-
 }

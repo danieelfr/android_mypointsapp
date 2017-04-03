@@ -1,5 +1,6 @@
 package danieeelfr.projects.android.mypoints.ui;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -32,25 +33,21 @@ public class MyPointsActivity extends AppCompatActivity {
         });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        if(savedInstanceState == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.points_list, new PointsListFragment())
-                    .add(R.id.points_map, new PointsMapFragment())
-                    .commit();
-        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
+        this.Update();
+    }
+
+    public void Update()
+    {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.points_list, new PointsListFragment())
                 .add(R.id.points_map, new PointsMapFragment())
                 .commit();
-
     }
 }
