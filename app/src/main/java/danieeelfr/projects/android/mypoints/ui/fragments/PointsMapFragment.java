@@ -64,11 +64,13 @@ public class PointsMapFragment extends Fragment {
                 GpsTracker gps = new GpsTracker(getActivity());
                 Location location = gps.getLocal();
 
-                latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(17).build();
+                if (location != null) {
+                    latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                    CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(17).build();
 
-                googleMap.addMarker(new MarkerOptions().position(latLng).title("Current position").snippet("You are here."));
-                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 1500, null);
+                    googleMap.addMarker(new MarkerOptions().position(latLng).title("Current position").snippet("You are here."));
+                    googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 1500, null);
+                }
             }
         });
 
