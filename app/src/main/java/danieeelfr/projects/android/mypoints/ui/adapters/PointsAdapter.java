@@ -70,7 +70,7 @@ public class PointsAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final View view = this.activity.getLayoutInflater().inflate(R.layout.item_list_points, null);
+       final View view = this.activity.getLayoutInflater().inflate(R.layout.item_list_points, null);
 
         pointModel = points.get(position);
 
@@ -102,7 +102,7 @@ public class PointsAdapter extends BaseAdapter {
         imbWhatsApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharePointToWhatsapp(v, pointModel);
+              pointBusiness.PreparePointShare(pointModel);
             }
         });
 
@@ -131,7 +131,7 @@ public class PointsAdapter extends BaseAdapter {
             }
         });
 
-        ImageButton imbWebSearch = (ImageButton)view.findViewById(R.id.imbWebSearch);
+        final ImageButton imbWebSearch = (ImageButton)view.findViewById(R.id.imbWebSearch);
         imbWebSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,56 +140,5 @@ public class PointsAdapter extends BaseAdapter {
         });
 
         return view;
-    }
-
-    public void SharePointToWhatsapp(View view, PointModel pointModel) {
-
-        try {
-            store();
-
-        } catch (Exception e) {
-            Toast.makeText(activity, "WhatsApp not Installed", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void store(){
-        Bitmap bitMap = BitmapFactory.decodeResource(activity.getResources(),R.mipmap.ic_launcher_round);
-        File mFile1 = Environment.getExternalStorageDirectory();
-        String fileName ="ic_launcher_round.png";
-
-        File mFile2 = new File(mFile1,fileName);
-        try {
-            FileOutputStream outStream;
-            outStream = new FileOutputStream(mFile2);
-            bitMap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
-            outStream.flush();
-            outStream.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        String sdPath = mFile1.getAbsolutePath().toString()+"/"+fileName;
-
-        File temp=new File(sdPath);
-        openScreenshot(mFile1, sdPath);
-    }
-
-    private void openScreenshot(File imageFile, String mPath)
-    {
-
-        File f=new File(mPath);
-        Uri uri = Uri.parse("file://"+f.getAbsolutePath());
-        Intent share = new Intent(Intent.ACTION_SEND);
-        //share.setPackage("com.whatsapp");
-        share.putExtra(Intent.EXTRA_STREAM, uri);
-        share.setType("image/*");
-        share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-        share.putExtra(Intent.EXTRA_TEXT, "teste");
-
-        activity.startActivity(Intent.createChooser(share, "Share image File"));
     }
 }
